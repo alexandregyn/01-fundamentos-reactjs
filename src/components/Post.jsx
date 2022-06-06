@@ -7,22 +7,25 @@ import styles from './Post.module.css';
 
 export function Post({author, publishedAt, content}) {
   const [comments, setComments] = useState(['Post muito top!, Parabéns!! 👏👏']);
-  const [newCommentText, setNewCommentsText] = useState('');
+  const [newCommentText, setNewCommentText] = useState('');
 
-  const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'às' HH:mm'h'",
-    { locale: ptBR }
-  );
+  const publishedDateFormatted = format(
+      publishedAt, "dd 'de' LLLL 'às' HH:mm'h'",
+      { locale: ptBR }
+    );
 
-  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, { locale: ptBR, addSuffix: true });
+  const publishedDateRelativeToNow = formatDistanceToNow(
+      publishedAt, { locale: ptBR, addSuffix: true }
+    );
 
   function handleCreateNewComment() {
     event.preventDefault()
     setComments([...comments, newCommentText]);
-    setNewCommentsText('');
+    setNewCommentText('');
   }
 
   function handleNewCommentChange() {
-    setNewCommentsText(event.target.value);
+    setNewCommentText(event.target.value);
   }
 
   function deleteComment(commentToDelete) {
@@ -38,7 +41,7 @@ export function Post({author, publishedAt, content}) {
           <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
             <strong>{author.name}</strong>
-            <span>{author.roler}</span>
+            <span>{author.role}</span>
           </div>
         </div>
 
@@ -81,7 +84,7 @@ export function Post({author, publishedAt, content}) {
         {comments.map(comment => {
           return (
             <Comment 
-              key={content} 
+              key={comment}
               comment={comment}
               onDeleteComment={deleteComment}
             />

@@ -12,7 +12,7 @@ const posts = [
     author: {
       avatarUrl: 'https://github.com/alexandregyn.png',
       name: 'Alexandre Morais',
-      roler: 'FullStack Developer'
+      role: 'FullStack Developer'
     },
     content: [
       { type: 'paragraph', content: 'Fala galeraa 👋' },
@@ -26,7 +26,7 @@ const posts = [
     author: {
       avatarUrl: 'https://github.com/Jonask12.png',
       name: 'Jonas Silva',
-      roler: 'Backend Developer'
+      role: 'Backend Developer'
     },
     content: [
       { type: 'paragraph', content: 'Fala galeraa 👋' },
